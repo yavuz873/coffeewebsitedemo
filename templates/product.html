@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block title %}Kahve Çeşitlerimiz - Coffee House{% endblock %}
+
+{% block content %}
+<section class="products">
+  <div class="container">
+    <h1>Kahve Çeşitlerimiz</h1>
+
+    <div class="product-grid">
+
+      <!-- Espresso / Dark Roast -->
+      <article class="product-card">
+        <img src="{{ url_for('static', filename='img/darkroast.png') }}" alt="Espresso Blend">
+        <div class="card-body">
+          <h2>Espresso Blend</h2>
+          <p>Koyu kavrum, yoğun aroma — klasik espresso tadı.</p>
+          <div class="price-row">
+            <span class="price">₺249</span>
+            <button class="mini">Sepete Ekle</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Ethiopia -->
+      <article class="product-card">
+        <img src="{{ url_for('static', filename='img/ethiopia.png') }}" alt="Ethiopia Yirgacheffe">
+        <div class="card-body">
+          <h2>Ethiopia Yirgacheffe</h2>
+          <p>Floral ve narenciye notalarıyla yumuşak içim.</p>
+          <div class="price-row">
+            <span class="price">₺289</span>
+            <button class="mini">Sepete Ekle</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Colombia -->
+      <article class="product-card">
+        <img src="{{ url_for('static', filename='img/colombia.png') }}" alt="Colombia Supremo">
+        <div class="card-body">
+          <h2>Colombia Supremo</h2>
+          <p>Karamel ve fındık aromalarıyla dengeli tat.</p>
+          <div class="price-row">
+            <span class="price">₺269</span>
+            <button class="mini">Sepete Ekle</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Brazil -->
+      <article class="product-card">
+        <img src="{{ url_for('static', filename='img/brazil.png') }}" alt="Brazil Cerrado">
+        <div class="card-body">
+          <h2>Brazil Cerrado</h2>
+          <p>Açık kavrum, badem ve sütlü çikolata notaları.</p>
+          <div class="price-row">
+            <span class="price">₺259</span>
+            <button class="mini">Sepete Ekle</button>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+{% endblock %}

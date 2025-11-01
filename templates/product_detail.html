@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}{{ p.name }} - Coffee House{% endblock %}
+{% block content %}
+<section class="section product-detail">
+  <div class="p-wrap">
+    <img class="p-cover" src="{{ url_for('static', filename=p.image) }}" alt="{{ p.name }}">
+    <div class="p-info">
+      <h1>{{ p.name }}</h1>
+      <p class="muted">{{ p.origin }} • {{ p.roast }} • {{ p.process }}</p>
+      <p>{{ p.notes }}</p>
+      <div class="p-buy">
+        <span class="price big">₺{{ p.price }}</span>
+        <button class="btn">Sepete Ekle</button>
+      </div>
+      <ul class="bullets">
+        <li>Tazelik garantisi</li>
+        <li>250g – 1kg seçenekleri</li>
+        <li>İsteğe göre öğütme</li>
+      </ul>
+    </div>
+  </div>
+</section>
+{% endblock %}

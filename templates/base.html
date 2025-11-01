@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{% block title %}Coffee House{% endblock %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<meta name="description" content="Coffee House: taze kavrulmuş premium kahve çekirdekleri ve demleme rehberleri.">
+<meta property="og:title" content="Coffee House">
+<meta property="og:type" content="website">
+<meta property="og:image" content="{{ url_for('static', filename='img/logo.jpg') }}">
+<meta property="og:description" content="Her yudumda gerçek kahve deneyimi.">
+
+<body>
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="container">
+      <div class="nav-left">
+        <a href="{{ url_for('index') }}" class="brand">
+          <img src="{{ url_for('static', filename='img/logo.jpg') }}" alt="Logo" class="logo">
+          <span class="brand-name">Coffee House</span>
+        </a>
+      </div>
+      <nav class="nav-right">
+        <a href="{{ url_for('index') }}">Ana Sayfa</a>
+        <a href="{{ url_for('about') }}">Hakkında</a>
+        <a href="{{ url_for('iletisim') }}">İletişim</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- İÇERİK -->
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>
+<nav class="nav-right">
+  <a href="{{ url_for('index') }}">Ana Sayfa</a>
+  <a href="{{ url_for('products') }}">Ürünler</a>
+  <a href="{{ url_for('about') }}">Hakkında</a>
+  <a href="{{ url_for('iletisim') }}">İletişim</a>
+</nav>

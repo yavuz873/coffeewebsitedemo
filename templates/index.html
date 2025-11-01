@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+{% block title %}Ana Sayfa - Coffee House{% endblock %}
+
+{% block content %}
+  <!-- HERO -->
+  <section class="hero">
+    <h1>Her yudumda gerçek kahve deneyimi</h1>
+    <p>Seçkin çekirdekler, özenli kavurma ve dengeli aroma. Güne ilham veren bir tat.</p>
+    <div class="actions">
+      <a class="btn" href="{{ url_for('products') }}">Kahveleri İncele</a>
+      <a class="btn ghost" href="{{ url_for('about') }}">Hikâyemiz</a>
+    </div>
+  </section>
+
+  <!-- ÖNE ÇIKAN ÜRÜNLER -->
+  <section class="section">
+    <div class="section-head">
+      <h2>Öne Çıkanlar</h2>
+      <a class="link" href="{{ url_for('products') }}">Tümünü gör</a>
+    </div>
+
+    <div class="grid products">
+      <!-- kart 1 -->
+      <article class="card">
+        <img loading="lazy" src="{{ url_for('static', filename='img/darkroast.PNG') }}" alt="Espresso Blend">
+        <div class="card-body">
+          <h3>Espresso Blend</h3>
+          <p>Koyu kavrum, kakao ve bitter notalar.</p>
+          <div class="price-row"><span class="price">₺249</span><button class="mini">Sepete Ekle</button></div>
+        </div>
+      </article>
+
+      <!-- kart 2 -->
+      <article class="card">
+        <img loading="lazy" src="{{ url_for('static', filename='img/ethiopia.png') }}" alt="Ethiopia Yirgacheffe">
+        <div class="card-body">
+          <h3>Ethiopia Yirgacheffe</h3>
+          <p>Orta kavrum, çiçeksi ve narenciye aromaları.</p>
+          <div class="price-row"><span class="price">₺289</span><button class="mini">Sepete Ekle</button></div>
+        </div>
+      </article>
+
+      <!-- kart 3 -->
+      <article class="card">
+        <img loading="lazy" src="{{ url_for('static', filename='img/colombia.png') }}" alt="Colombia Supremo">
+        <div class="card-body">
+          <h3>Colombia Supremo</h3>
+          <p>Dengeli gövde, karamel ve fındık notaları.</p>
+          <div class="price-row"><span class="price">₺269</span><button class="mini">Sepete Ekle</button></div>
+        </div>
+      </article>
+
+      <!-- istersen 4. kart -->
+      <!--
+      <article class="card">
+        <img loading="lazy" src="{{ url_for('static', filename='img/brazil.png') }}" alt="Brazil Cerrado">
+        <div class="card-body">
+          <h3>Brazil Cerrado</h3>
+          <p>Açık kavrum, badem ve sütlü çikolata notaları.</p>
+          <div class="price-row"><span class="price">₺239</span><button class="mini">Sepete Ekle</button></div>
+        </div>
+      </article>
+      -->
+    </div>
+  </section>
+
+  <!-- HİKÂYE ŞERİDİ -->
+  <section class="strip">
+    <div class="strip-inner">
+      <h2>Çekirdekten fincana özen</h2>
+      <p>Çiftçilerle doğrudan çalışır, küçük partilerde kavururuz. Tazelik bizim için standarttır.</p>
+    </div>
+  </section>
+
+  <!-- DEMLEME ADIMLARI -->
+  <section class="section">
+    <h2>Demleme 1-2-3</h2>
+    <div class="grid steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Öğüt</h3>
+        <p>Demleme yöntemine uygun taze öğütme.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Oran</h3>
+        <p>1:15–1:17 arası su/kahve dengesi.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Isı</h3>
+        <p>92–94°C ile aromayı ortaya çıkar.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABONELİK -->
+  <section class="newsletter">
+    <h2>Yeni kavrumlardan haberdar ol</h2>
+    <form class="subscribe" method="post" action="#">
+      <input type="email" name="email" placeholder="E-posta adresin" required>
+      <button type="submit" class="btn">Abone Ol</button>
+    </form>
+    <small>Haftada en fazla 1 e-posta. Spam yok.</small>
+  </section>
+{% endblock %}
