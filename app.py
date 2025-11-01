@@ -2,9 +2,8 @@ from flask import Flask, render_template, request
 
 app = Flask(__name__, template_folder="templates", static_folder="static")
 
-# ----- Demo veri -----
 PRODUCTS = [
-    {"id": 1, "name": "Espresso Blend", "origin": "Blend",    "roast": "Koyu",
+    {"id": 1, "name": "Espresso Blend", "origin": "Blend", "roast": "Koyu",
      "process": "Natural", "notes": "Kakao, bitter çikolata", "price": 249, "image": "img/product1.webp"},
     {"id": 2, "name": "Ethiopia Yirgacheffe", "origin": "Ethiopia", "roast": "Orta",
      "process": "Washed", "notes": "Çiçeksi, narenciye", "price": 289, "image": "img/product2.webp"},
@@ -14,7 +13,6 @@ PRODUCTS = [
      "process": "Natural", "notes": "Sütlü çikolata, badem", "price": 239, "image": "img/product4.webp"},
 ]
 
-# ----- Routes -----
 @app.route("/")
 def index():
     return render_template("index.html")
@@ -41,17 +39,17 @@ def products():
     origins = sorted({p["origin"] for p in PRODUCTS})
     roasts  = sorted({p["roast"]  for p in PRODUCTS})
 
-    return render_template("products.html",
-                           products=items,
-                           origins=origins, roasts=roasts,
-                           selected_origin=origin, selected_roast=roast,
-                           selected_sort=sort)
+    return render_template(
+        "products.html",
+        products=items,
+        origins=origins, roasts=roasts,
+        selected_origin=origin, selected_roast=roast, selected_sort=sort
+    )
 
 @app.route("/product/<int:pid>")
 def product_detail(pid):
     p = next((x for x in PRODUCTS if x["id"] == pid), None)
     if not p:
-        # İstersen 404 kodu döndür
         return render_template("tesekkurler.html", msg="Ürün bulunamadı"), 404
     return render_template("product_detail.html", p=p)
 
@@ -63,9 +61,5 @@ def about():
 def iletisim():
     return render_template("iletisim.html")
 
-# ----- Runner -----
 if __name__ == "__main__":
     app.run(debug=True)
-@app.route("/products")
-def products():
-    return render_template("products.html")
