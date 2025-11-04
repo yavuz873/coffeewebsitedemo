@@ -1,46 +1,45 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% block title %}Coffee House{% endblock %}</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
-<meta name="description" content="Coffee House: taze kavrulmuş premium kahve çekirdekleri ve demleme rehberleri.">
-<meta property="og:title" content="Coffee House">
-<meta property="og:type" content="website">
-<meta property="og:image" content="{{ url_for('static', filename='img/logo.jpg') }}">
-<meta property="og:description" content="Her yudumda gerçek kahve deneyimi.">
-
 <body>
-  <!-- NAVBAR -->
+
+  <!-- 🌿 NAVBAR -->
   <header class="navbar">
-    <div class="container">
-      <div class="nav-left">
-        <a href="{{ url_for('index') }}" class="brand">
-          <img src="{{ url_for('static', filename='img/logo.jpg') }}" alt="Logo" class="logo">
-          <span class="brand-name">Coffee House</span>
-        </a>
-      </div>
-      <nav class="nav-right">
-        <a href="{{ url_for('index') }}">Ana Sayfa</a>
-        <a href="{{ url_for('about') }}">Hakkında</a>
-        <a href="{{ url_for('iletisim') }}">İletişim</a>
+    <div class="nav-inner">
+      <a class="brand" href="{{ url_for('index') }}">
+        <img src="{{ url_for('static', filename='img/logo.jpg') }}" alt="Coffee House">
+        <span>Coffee House</span>
+      </a>
+      <nav class="nav-links">
+        <a href="{{ url_for('index') }}" class="{% if request.path=='/' %}active{% endif %}">Ana Sayfa</a>
+        <a href="{{ url_for('products') }}" class="{% if '/products' in request.path %}active{% endif %}">Ürünler</a>
+        <a href="{{ url_for('about') }}" class="{% if '/about' in request.path %}active{% endif %}">Hakkında</a>
+        <a href="{{ url_for('iletisim') }}" class="{% if '/iletisim' in request.path %}active{% endif %}">İletişim</a>
       </nav>
+      <button class="nav-toggle" aria-label="Menüyü aç/kapat">☰</button>
     </div>
   </header>
 
-  <!-- İÇERİK -->
+  <!-- 🌿 İÇERİK -->
   <main>
     {% block content %}{% endblock %}
   </main>
+
+  <!-- 🌿 JS -->
+  <script>
+    const btn = document.querySelector('.nav-toggle');
+    const links = document.querySelector('.nav-links');
+    if (btn && links) btn.addEventListener('click', () => links.classList.toggle('open'));
+
+    const bar = document.querySelector('.navbar');
+    const shadow = () => bar && (window.scrollY > 10 ? bar.classList.add('nav-shadow') : bar.classList.remove('nav-shadow'));
+    shadow(); window.addEventListener('scroll', shadow);
+  </script>
+
 </body>
 </html>
-<nav class="nav-right">
-  <a href="{{ url_for('index') }}">Ana Sayfa</a>
-  <a href="{{ url_for('products') }}">Ürünler</a>
-  <a href="{{ url_for('about') }}">Hakkında</a>
-  <a href="{{ url_for('iletisim') }}">İletişim</a>
-</nav>

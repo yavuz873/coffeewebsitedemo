@@ -67,6 +67,27 @@ body::before {
   color: #d7b98f; /* sıcak altın kahve tonu */
   transition: 0.3s;
 }
+/* navbar ana stiller */
+.navbar { ... }
+.nav-inner { ... }
+.brand img { ... }
+
+/* ↓↓↓ yeni ekleyeceğin logo düzenlemeleri ↓↓↓ */
+.brand img {
+  width:36px;
+  height:36px;
+  padding:3px;
+  border-radius:10px;
+  border:1px solid rgba(255,255,255,.15);
+  box-shadow:0 2px 6px rgba(0,0,0,.25);
+  background:#6b5a54;
+  object-fit:cover;
+}
+.brand span {
+  font-size:18px;
+  font-weight:700;
+  letter-spacing:.2px;
+}
 
 /* HERO */
 .hero {
@@ -343,6 +364,171 @@ section.products .product-card > img{
 }
 .mini:hover {
   background: #3b2f2a;
+  color: #fff;
+}
+/* NAVBAR */
+.navbar{
+  position: sticky; top: 0; z-index: 999;
+  background-color: #3a2320;
+  color: #fff;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+.navbar.nav-shadow{
+  box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+}
+.nav-inner{
+  max-width: 1100px;
+  margin: 0 auto;
+  height: 70px;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Marka */
+.brand{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: #fff;
+}
+.brand img{
+  width: 38px; /* küçültülmüş logo */
+  height: 38px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+.brand span{
+  font-weight: 600;
+  font-size: 18px;
+}
+
+/* Linkler */
+.nav-links{
+  display: flex;
+  gap: 18px;
+}
+.nav-links a{
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  transition: color .2s ease;
+}
+.nav-links a:hover, .nav-links a.active{
+  color: #c9a27c;
+}
+
+/* Mobil menü (isteğe bağlı) */
+.nav-toggle{ display: none; }
+@media (max-width: 900px){
+  .nav-toggle{
+    display:block;
+    background:none;
+    border:none;
+    color:#fff;
+    font-size:22px;
+  }
+  .nav-links{
+    display:none;
+    flex-direction:column;
+    background-color:#3a2320;
+    position:absolute;
+    left:0; right:0; top:70px;
+    padding:10px 0;
+  }
+  .nav-links.open{ display:flex; }
+}
+.hero {
+  position: relative; /* dikey yazı hero içinde konumlanabilsin */
+}
+
+.vertical-text {
+  position: absolute;
+  left: 60px; /* veya right:60px; istersen sağda */
+  bottom: 20px; /* hero’nun alt hizasında */
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  letter-spacing: 6px;
+  color: #3a2320;
+  opacity: 0.2;
+  transition: transform .3s ease-out;
+  pointer-events: none;
+}
+.hero-index {
+  position: relative;
+  background: #fff;
+  padding: 80px 60px;
+  border-radius: 18px;
+  text-align: center;
+}
+
+.hero-index .vertical-text {
+  position: absolute;
+  left: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  letter-spacing: 6px;
+  color: #3a2320;
+  opacity: 0.18;
+  transition: transform 0.35s ease, opacity 0.35s ease;
+  user-select: none;
+}
+
+.hero-index:hover .vertical-text {
+  transform: translateY(calc(-50% - 10px));
+  opacity: 0.32;
+}
+
+@media (hover: none) {
+  .hero-index .vertical-text {
+    pointer-events: none;
+  }
+}
+
+/* --- Buton animasyonu --- */
+.hero-index .btn {
+  display: inline-block;
+  padding: 12px 26px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  margin: 6px;
+}
+
+.hero-index .btn {
+  background-color: #4b2a23;
+  color: #fff;
+  box-shadow: 0 6px 0 #2b1714;
+  transform: translateY(0);
+}
+
+.hero-index .btn:hover {
+  filter: brightness(1.05);
+}
+
+.hero-index .btn:active {
+  transform: translateY(3px);
+  box-shadow: 0 3px 0 #2b1714;
+}
+
+.hero-index .btn.ghost {
+  background: transparent;
+  border: 2px solid #4b2a23;
+  color: #4b2a23;
+  box-shadow: none;
+}
+
+.hero-index .btn.ghost:hover {
+  background: #4b2a23;
   color: #fff;
 }
 

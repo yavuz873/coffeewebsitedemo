@@ -1,0 +1,4 @@
+title,price,image_url,notes,slug,subtitle
+Espresso Blend,249,/static/img/darkroast.png,"Kakao|Bitter",espresso-blend,"Koyu kavrum, kakao ve bitter notalar."
+Ethiopia Yirgacheffe,289,/static/img/ethiopia.png,"Çiçeksi|Narenciye",ethiopia-yirgacheffe,"Orta kavrum, çiçeksi ve narenciye aromaları."
+Colombia Supremo,269,/static/img/colombia.png,"Karamel|Fındık",colombia-supremo,"Dengeli gövde, karamel ve fındık notaları."

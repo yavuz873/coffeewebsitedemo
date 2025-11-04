@@ -4,13 +4,18 @@
 {% block content %}
   <!-- HERO -->
   <section class="hero">
-    <h1>Her yudumda gerçek kahve deneyimi</h1>
-    <p>Seçkin çekirdekler, özenli kavurma ve dengeli aroma. Güne ilham veren bir tat.</p>
-    <div class="actions">
-      <a class="btn" href="{{ url_for('products') }}">Kahveleri İncele</a>
-      <a class="btn ghost" href="{{ url_for('about') }}">Hikâyemiz</a>
-    </div>
-  </section>
+  <div class="vertical-text">
+    <span>Taze Kavrulmuş</span>
+  </div>
+
+  <h1>Her yudumda gerçek kahve deneyimi</h1>
+  <p>Seçkin çekirdekler, özenli kavurma ve dengeli aroma. Güne ilham veren bir tat.</p>
+  <div class="actions">
+    <a class="btn" href="{{ url_for('products') }}">Kahveleri İncele</a>
+    <a class="btn ghost" href="{{ url_for('about') }}">Hikâyemiz</a>
+  </div>
+</section>
+
 
   <!-- ÖNE ÇIKAN ÜRÜNLER -->
   <section class="section">
